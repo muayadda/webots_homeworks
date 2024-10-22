@@ -1,0 +1,75 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puckGroundSensors.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.5773502691896258 -0.5773502691896258 -0.5773502691896258 4.188785307179587
+  position -3.4229880875058487e-06 -3.4229977660144515e-06 2.503301695135624
+}
+TexturedBackground {
+  luminosity 0
+  skybox FALSE
+}
+TexturedBackgroundLight {
+  luminosity 0.4
+}
+RectangleArena {
+  floorSize 2.2 1.8
+  floorTileSize 2.2 1.8
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "../../../Downloads/floor_texture_lab2.png"
+      ]
+      repeatS FALSE
+      repeatT FALSE
+      filtering 1
+    }
+    roughness 1
+  }
+  wallThickness 0.025
+  wallHeight 0.05
+}
+DEF Controller E-puck {
+  hidden position_0_0 2259.1102716642376
+  hidden position_0_1 2232.762217634456
+  hidden linearVelocity_0 -0.011249659670799876 -0.010017948759525542 2.9608757519717588e-08
+  hidden angularVelocity_0 0.002762759078058116 -0.0031130425715902013 -0.17560084082857008
+  hidden rotation_1 0 -0.9999999999999999 0 2.836438920413488
+  hidden linearVelocity_1 -0.01467595882224164 -0.013067394698065768 1.8955125913776424e-09
+  hidden angularVelocity_1 0.6677726197595869 -0.7499526090357738 -0.17605252026194168
+  hidden rotation_2 0 -1 0 4.0517517214765935
+  hidden linearVelocity_2 -0.007855902516011624 -0.0069946049273281255 -1.7431479814830747e-09
+  hidden angularVelocity_2 0.33524811263558274 -0.37655039461721956 -0.17571926072185814
+  translation 0.05660574085020548 -0.14938129074400283 -6.407151253858857e-05
+  rotation 0.0006727201992235099 0.0002608311731697632 -0.9999997397072825 2.4169695549109895
+  controller "e-puck_light_lab2"
+  groundSensorsSlot [
+    DEF Controller E-puckGroundSensors {
+    }
+  ]
+}
+DEF Light SpotLight {
+  attenuation 0 0 2
+  beamWidth 0.3
+  cutOffAngle 0.4
+  direction 0.7 0.7 -0.5
+  intensity 10
+  location -1.2 -1 0.3
+}
+PointLight {
+  attenuation 0 0 1
+  location 0 0 1
+  on FALSE
+}
+Robot {
+  name "Supervisor"
+  controller "supervisor_lab2"
+  supervisor TRUE
+}
